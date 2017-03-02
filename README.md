@@ -27,8 +27,10 @@ Please incorporate following in your application:-
 3. Use package.json.
 4. Use webpack to compile your javascript files.
 5. Use webpack dev server and hot reloading for live reloading.
-
-
-
+6. Provide comments wherever required.
+7. Add test cases for the checking following scenarios:-
+    1. components are rendered properly or not
+    2. create a mock api data and check if component renders properly when you pass the mock instead of actual api call.
+    
 
 
