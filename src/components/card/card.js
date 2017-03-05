@@ -6,13 +6,11 @@ export default class Card extends Component{
 
 	constructor(props){
 		super(props);
-		this.state = {cardOpen:false}
-		this.handleCardClick = this.handleCardClick.bind(this);
 	}
 
-	handleCardClick(){
+	handleCardClick = () => {
 		this.nearestUsers=this.findClosestUsers(this.props,this.props.cards);
-		this.setState({cardOpen : !this.state.cardOpen});
+		this.props.handleCardClick(this.props.id);
 	}
 
 	calculateDistance(start,end){
@@ -65,7 +63,7 @@ export default class Card extends Component{
 				<div className="email">
 					<label>User email : {email}</label>
 				</div>
-				<div className="cardOpen" style={this.state.cardOpen?{}:{display:'none'}}>
+				<div className="cardOpen" style={this.props.expand?{}:{display:'none'}}>
 					<div className="website">
 						<label>Website : <a href={website} target="_blank">{website}</a></label>
 					</div>

@@ -9,8 +9,7 @@ export default class CardStack extends Component{
 
 	constructor(props){
 		super(props);
-		this.state = {cards:[]};
-		//this.getCards=this.getCards.bind(this);
+		this.state = {cards:[],clickedCard:-1};
 	}
 
 	componentWillMount(){
@@ -25,13 +24,17 @@ export default class CardStack extends Component{
 		cardStore.removeListener('cardsFetched',this.getCards);
 	}
 
+	handleCardClick = (cardId) => {
+		this.setState({clickedCard:cardId});
+	}
+
 	getCards = () => {
 		this.setState({cards:cardStore.getCards()});
 	}
 
 	render(){
 		const cards = this.state.cards.map((card,index)=>{
-			return <Card key={index} {...card} cards={this.state.cards}/>;
+			return <Card key={index} {...card} handleCardClick={this.handleCardClick} cards={this.state.cards} expand={this.state.clickedCard===card.id?true:false}/>;
 		});
 
 		return (
