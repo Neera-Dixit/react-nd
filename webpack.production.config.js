@@ -38,10 +38,6 @@ var clientMainPath = path.resolve(__dirname, 'src','components','index.js');
               'process.env': {
                 'NODE_ENV': JSON.stringify('production')
                 }
-            }),
-             new HtmlReplaceWebpackPlugin({
-                  pattern: 'foo',
-                  replacement: '`foo` has been replaced with `bar`'
             })
 
         ],
